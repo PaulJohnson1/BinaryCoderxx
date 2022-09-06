@@ -4,6 +4,7 @@
 #pragma once
 
 #include <string>
+#include <std/string.hh>
 
 #include <BinaryCoder/BinaryCoder.hh>
 
@@ -31,7 +32,7 @@ namespace bc
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Float64, double);
     struct String
     {
-        using Type = std::string;
+        using Type = std2::String;
         static Type Read(BinaryCoder &);
         static void Write(BinaryCoder &, Type const &x);
     };

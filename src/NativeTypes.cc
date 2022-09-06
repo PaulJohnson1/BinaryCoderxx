@@ -164,15 +164,15 @@ namespace bc
     }
     String::Type String::Read(BinaryCoder &coder)
     {
-        std::string output;
+        std2::String output;
         char byte;
         while (byte = coder.Read<Int8>())
-            output.push_back(byte);
+            output += byte;
         return output;
     }
     void String::Write(BinaryCoder &coder, Type const &x)
     {
-        for (size_t i = 0; i < x.size(); i++)
+        for (size_t i = 0; i < x.Size(); i++)
             coder.Write<Int8>(x[i]);
         coder.Write<Int8>(0);
     }
