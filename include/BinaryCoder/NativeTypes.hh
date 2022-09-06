@@ -13,8 +13,8 @@ namespace bc
     struct PUBLIC_NAME                                                     \
     {                                                                      \
         using Type = RETURN_TYPE;                                          \
-        static Value<Type> Read(BinaryCoder &);                            \
-        static size_t Write(BinaryCoder &, Type x);                        \
+        static Type Read(BinaryCoder &);                            \
+        static void Write(BinaryCoder &, Type x);                        \
     };
 
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(VarUint, uint64_t);
@@ -32,8 +32,8 @@ namespace bc
     struct String
     {
         using Type = std::string;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type const &x);
+        static Type Read(BinaryCoder &);
+        static void Write(BinaryCoder &, Type const &x);
     };
 
 #undef BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE

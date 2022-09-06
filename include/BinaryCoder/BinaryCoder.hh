@@ -5,20 +5,6 @@
 
 namespace bc
 {
-    template <typename T>
-    struct Value
-    {
-        using Type = T;
-        Type value;
-        size_t offset;
-        Value() = delete;
-        Value(Type x, size_t deltaAt)
-            : value(x),
-              offset(deltaAt)
-        {
-        }
-    };
-
     class BinaryCoder
     {
         uint8_t *m_Data;
@@ -35,16 +21,12 @@ namespace bc
         template <typename T>
         typename T::Type Read()
         {
-            Value<typename T::Type> result = T::Read(*this);
-            m_At += result.offset;
-            return result.value;
+            return T::Read(*this);
         }
         template <typename T>
-        size_t Write(typename T::Type const &x)
+        void Write(typename T::Type const &x)
         {
-            size_t deltaAt = T::Write(*this, x);
-            m_At += deltaAt;
-            return deltaAt;
+            T::Write(*this, x);
         }
     };
 }
