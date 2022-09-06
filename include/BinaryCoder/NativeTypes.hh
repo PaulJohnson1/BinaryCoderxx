@@ -17,8 +17,8 @@ namespace bc
         static size_t Write(BinaryCoder &, Type x);                        \
     };
 
-    BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(VarUint, uint32_t);
-    BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(VarInt, int32_t);
+    BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(VarUint, uint64_t);
+    BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(VarInt, int64_t);
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Uint8, uint8_t);
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Uint16, uint16_t);
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Uint32, uint32_t);
@@ -35,5 +35,6 @@ namespace bc
         static Value<Type> Read(BinaryCoder &);
         static size_t Write(BinaryCoder &, Type const &x);
     };
+
 #undef BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE
 }

@@ -8,12 +8,12 @@ namespace bc
         Type shift = 0;
         while (coder.Data()[coder.At()] & 0x80)
         {
-            uint64_t byte = coder.Read<Uint8>();
+            Type byte = coder.Read<Uint8>();
             x |= (byte & 127) << shift;
             shift += 7;
         }
 
-        x |= (coder.Read<Uint8>() & 127) << shift;
+        x |= (Type)(coder.Read<Uint8>() & 127) << shift;
 
         return {x, 0};
     }

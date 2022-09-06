@@ -3,7 +3,8 @@
 namespace bc
 {
     BinaryCoder::BinaryCoder(uint8_t *buffer)
-        : m_Data(buffer)
+        : m_Data(buffer),
+          m_At(0)
     {
     }
 
