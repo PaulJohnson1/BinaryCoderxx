@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <string>
+
 #include <BinaryCoder/BinaryCoder.hh>
 
 namespace bc
@@ -25,6 +27,13 @@ namespace bc
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Int16, int16_t);
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Int32, int32_t);
     BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Int64, int64_t);
-
+    BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Float32, float);
+    BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE(Float64, double);
+    struct String
+    {
+        using Type = std::string;
+        static Value<Type> Read(BinaryCoder &);
+        static size_t Write(BinaryCoder &, Type const &x);
+    };
 #undef BINARY_CODER_DECLARE_NATIVE_LIBRARY_TYPE
 }
