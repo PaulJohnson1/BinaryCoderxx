@@ -40,59 +40,11 @@ namespace bc
             return result.value;
         }
         template <typename T>
-        void Write(typename T::Type const &x)
+        size_t Write(typename T::Type const &x)
         {
             size_t deltaAt = T::Write(*this, x);
             m_At += deltaAt;
+            return deltaAt;
         }
-    };
-
-    struct Uint8
-    {
-        using Type = uint8_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Uint16
-    {
-        using Type = uint16_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Uint32
-    {
-        using Type = uint32_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Uint64
-    {
-        using Type = uint64_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Int8
-    {
-        using Type = uint8_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Int16
-    {
-        using Type = uint16_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Int32
-    {
-        using Type = uint32_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
-    };
-    struct Int64
-    {
-        using Type = uint64_t;
-        static Value<Type> Read(BinaryCoder &);
-        static size_t Write(BinaryCoder &, Type x);
     };
 }

@@ -2,4 +2,4 @@ project(binarycoder)
 
 include_directories(include)
 
-add_executable(binarycoder src/BinaryCoder.cc)
+add_executable(binarycoder src/BinaryCoder.cc src/NativeTypes.cc)
